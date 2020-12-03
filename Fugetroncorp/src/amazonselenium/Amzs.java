@@ -12,10 +12,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Amzs {
@@ -72,10 +74,17 @@ public class Amzs {
 		return list;
        }
 	
-	@BeforeTest
-	  public void beforeTest() throws InterruptedException {
+	   @Parameters({"browser"})
+       @BeforeTest
+	  public void beforeTest(String browser) throws InterruptedException {
+		if(browser.equalsIgnoreCase("chrome")) {
 		    System.setProperty("webdriver.chrome.driver", "D:\\Chrome\\chromedriver_win32 (1)\\chromedriver.exe");
 			driver=new ChromeDriver();
+		}
+		else if(browser.equalsIgnoreCase("firefox")) {
+			System.setProperty("webdriver.gecko.driver", "D:\\Firefox\\geckodriver-v0.28.0-win32\\geckodriver.exe");
+			driver=new FirefoxDriver();
+		}
 		    driver.get("https://www.amazon.in");
 		    driver.manage().window().maximize();
 		    WebDriverWait wait = new WebDriverWait(driver,30); 

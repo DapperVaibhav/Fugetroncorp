@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default suite" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test" verbose="2">
+  <test name="Amzs">
+ 
+ <parameter name="browser" value"Chrome" />
+ <parameter name="browser" value"Firefox" />
+  
+    <classes>
+      <class name="amazonselenium.Amzs"/>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->
+            

@@ -14,7 +14,7 @@ public class db {
         String dbUrl = "jdbc:mysql://localhost:3036/emp";						
 		String username = "root";	
         	
-		String password = "guru99";				
+		String password = "";				
 
 			
 		String query = "select *  from employee;";	
